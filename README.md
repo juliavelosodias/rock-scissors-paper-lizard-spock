@@ -101,14 +101,6 @@ Todas as distâncias são divididas pelo tamanho da palma, calculado pela média
 - **Spock:** quatro dedos estendidos; pontas `8-12` e `16-20` próximas; vão central maior que a média dos vãos dos pares. A comparação usa pontas e articulações para tolerar perspectiva.
 - **Lagarto:** exige simultaneamente indicador curvo, polegar curvo, abertura moderada entre pontas `4-8`, projeção dos dois dedos para fora da palma e outros três dedos não totalmente retos.
 
-### Por que o Lagarto não é “qualquer mão meio fechada”
-
-`detectar_lagarto()` combina cinco testes. O ângulo do indicador deve indicar curvatura; o polegar precisa estar curvo ou projetado; a abertura normalizada `4-8` deve ficar entre `0.32` e `1.02`; ambos precisam formar a boca do C; médio, anelar e mínimo não podem parecer uma mão aberta. Abertura e curvatura do indicador são obrigatórias. Outros sinais usam pontuação combinada para tolerar anatomia e rotação diferentes.
-
-### Por que Papel não vira Spock
-
-`detectar_spock()` exige dois pares próximos e um vão central grande. Papel exige cinco dedos abertos e rejeita vão central excessivo. Tesoura exige anelar e mínimo dobrados, portanto não atende Spock.
-
 ## Estabilidade e confiança
 
 Uma pose só é aceita com confiança mínima `0.68` e vantagem de `0.10` sobre a segunda hipótese. Ao aparecer um gesto conhecido, a tela conta 3, 2, 1. Depois de “JÁ!”, o mesmo gesto deve ficar estável por 1 segundo. O resultado aparece por 3 segundos.
