@@ -28,6 +28,39 @@ python -c "import mediapipe as mp; print(mp.__version__, hasattr(mp, 'solutions'
 
 O resultado esperado é `0.10.21 True`.
 
+## Instalação no macOS
+
+Recomenda-se usar o Python 3.11. Primeiro, clone o repositório e instale as dependências em um ambiente virtual:
+
+```bash
+git clone https://github.com/juliavelosodias/rock-scissors-paper-lizard-spock.git
+cd rock-scissors-paper-lizard-spock
+python3 -m venv venv
+source venv/bin/activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+Antes de executar, altere esta linha em `main.py`:
+
+```python
+camera = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+```
+
+para usar o backend de câmera do macOS:
+
+```python
+camera = cv2.VideoCapture(0, cv2.CAP_AVFOUNDATION)
+```
+
+Execute o jogo:
+
+```bash
+python main.py
+```
+
+Na primeira execução, autorize o Terminal a acessar a câmera em **Ajustes do Sistema → Privacidade e Segurança → Câmera**. Se a câmera não abrir, experimente trocar o índice `0` por `1` ou `2`. Pressione `Q` ou `Esc` para sair e `R` para zerar o placar.
+
 ### Projeto em pasta com acentos
 
 MediaPipe 0.10 pode falhar ao carregar modelos nativos quando o ambiente virtual está em caminho com caracteres como `Área`. `main.py` detecta esse caso e copia somente os módulos de mão necessários para `%TEMP%\rpsls_mediapipe`, caminho ASCII usado como cache. O processamento e os modelos continuam locais; nenhuma imagem é enviada pela rede.
